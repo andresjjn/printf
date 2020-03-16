@@ -1,15 +1,14 @@
 #include "holberton.h"
 
 /**
- *  _printf - function to print string of caracters and mnumbers
- *  @format: string to be printed
- *  Return: nothing
+ *  _printf - Function to print string of caracters and mnumbers
+ *  @format: String to be printed and indicators to print
+ *  Return: Number of chars printed.
  */
 int _printf(const char * const format, ...)
 {
 	va_list arg;
-	int h = 0, j, i;
-	char *t;
+	int h = 0;
 
 	va_start(arg, format);
 	while (format[h])
