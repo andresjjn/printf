@@ -105,3 +105,4 @@ void back(const char *format, int h)
 			_putchar('\n');
 			break;
 	}
+}
