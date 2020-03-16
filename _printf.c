@@ -8,7 +8,7 @@
 int _printf(const char * const format, ...)
 {
 	va_list arg;
-	int h = 0, j;
+	int h = 0, j, i;
 	char *t;
 
 	va_start(arg, format);
@@ -17,26 +17,12 @@ int _printf(const char * const format, ...)
 		if (format[h] == '%')
 		{
 			h++;
-			switch (format[h])
-			{
-				case 'c':
-				_putchar((char) va_arg(arg, int));
-				break;
-				case 's':
-				t = va_arg(arg, char *);
-				for (j = 0; t[j] != '\0'; j++)
-					_putchar(t[j]);
-			}
+			porcent(format, h, arg);
 		}
 		else if (format[h] == '\\')
 		{
 			h++;
-			switch (format[h])
-			{
-				case 'n':
-				_putchar('\n');
-				break;
-			}
+			back(format, h);
 		}
 		else
 			_putchar(format[h]);
