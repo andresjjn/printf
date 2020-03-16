@@ -5,10 +5,10 @@
  *  @format: string to be printed
  *  Return: nothing
  */
-void _printf(const char * const format, ...)
+int _printf(const char * const format, ...)
 {
 	va_list arg;
-	int h = 0, i = 0, j;
+	int h = 0, j;
 	char *t;
 
 	va_start(arg, format);
@@ -20,12 +20,12 @@ void _printf(const char * const format, ...)
 			switch (format[h])
 			{
 				case 'c':
-				putchar((char) va_arg(arg, int));
+				_putchar((char) va_arg(arg, int));
 				break;
 				case 's':
 				t = va_arg(arg, char *);
 				for (j = 0; t[j] != '\0'; j++)
-					putchar(t[j]);
+					_putchar(t[j]);
 			}
 		}
 		else if (format[h] == '\\')
@@ -34,14 +34,14 @@ void _printf(const char * const format, ...)
 			switch (format[h])
 			{
 				case 'n':
-				putchar('\n');
+				_putchar('\n');
 				break;
 			}
 		}
 		else
-			putchar(format[h]);
+			_putchar(format[h]);
 		h++;
 	}
 	va_end(arg);
-	putchar('\n');
+	return (h);
 }
