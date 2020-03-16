@@ -12,27 +12,13 @@ int _putchar(char c)
 }
 
 /**
- * _printstr - print a string of characters
- * @s: The character to print
- * Return: nothing
- */
-void _printstr(char *s)
-{
-	int i = 0;
-	
-	if (s == NULL)
-		return;	
-	for (i = 0; s[i]; i++)
-		_putchar(s[i]);
-}
-
-/**
  * print_number - write a function that integers
  * @n: this is an integer
  */
 void print_number(int n)
 {
 	unsigned int l;
+
 	if (n < 0)
 	{
 		l = -n;
@@ -51,8 +37,7 @@ void print_number(int n)
 
 /**
  * printhexa - print hexadecimal characters
- *
- * Return: Always 0 (Success)
+ * Return: Integer (Success)
  */
 int printhexa(void)
 {
@@ -72,49 +57,51 @@ int printhexa(void)
 
 /**
  * porcent - search for case after %
- *
+ * @format: string to be evaluated
+ * @h: number of iterations
+ * @arg: argument from the list
  * Return: Always 0 (Success)
  */
-void porcent(const char * format, int h, va_list arg)
+void porcent(const char *format, int h, va_list arg)
 {
-    int j, i;
-    char *t;
-    switch (format[h])
-    {
-        case 'c':
-            _putchar((char) va_arg(arg, int));
-        break;
-        case 's':
-            t = va_arg(arg, char *);
-            for (j = 0; t[j] != '\0'; j++)
-                _putchar(t[j]);
-        break;
-        case 'd':
-            i = va_arg(arg, int);
-            print_number(i);
-        break;
-        case 'i':
-            i = va_arg(arg, int);
-            print_number(i);
-        break;
-        case '%':
-            i = va_arg(arg, int);
-            print_number(i);
-        break;
-    }
+	int j, i;
+	char *t;
+
+	switch (format[h])
+	{
+		case 'c':
+			_putchar((char) va_arg(arg, int));
+			break;
+		case 's':
+			t = va_arg(arg, char *);
+			for (j = 0; t[j] != '\0'; j++)
+			_putchar(t[j]);
+			break;
+		case 'd':
+			i = va_arg(arg, int);
+			print_number(i);
+			break;
+		case 'i':
+			i = va_arg(arg, int);
+			print_number(i);
+			break;
+		case '%':
+			_putchar ('%')
+			break;
+	}
 }
 
 /**
  * back - identify new line
- *
+ * @format: string to be evaluated
+ * @h: integer iteration function
  * Return: Always 0 (Success)
  */
-void back(const char * format, int h)
+void back(const char *format, int h)
 {
-    switch (format[h])
-    {
-        case 'n':
-            _putchar('\n');
-        break;
-    }
-}
+	switch (format[h])
+	{
+		case 'n':
+			_putchar('\n');
+			break;
+	}
