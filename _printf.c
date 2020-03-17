@@ -8,7 +8,7 @@
 int _printf(const char * const format, ...)
 {
 	va_list arg;
-	int h = 0;
+	int h = 0, v = 0;
 
 	va_start(arg, format);
 	while (format[h])
@@ -17,16 +17,18 @@ int _printf(const char * const format, ...)
 		{
 			h++;
 			porcent(format, h, arg);
+			v++;
 		}
 		else if (format[h] == '\\')
 		{
 			h++;
 			back(format, h);
+			v++;
 		}
 		else
 			_putchar(format[h]);
 		h++;
 	}
 	va_end(arg);
-	return (h);
+	return (h - v);
 }
