@@ -1,14 +1,4 @@
 #include "holberton.h"
-/**
- * percentage - prints sign
- * @c: sign to be printed
- * Return: one in success
- */
-int percentage(__attribute__((unused))char *c)
-{
-	_putchar('%');
-	return (1);
-}
 
 /**
  * print_str - print strings
@@ -48,9 +38,6 @@ void print_number(int n)
 		print_number(l / 10);
 	}
 	_putchar(l % 10 + '0');
-	/*longitud?
-	min __INTMAX_
-	_PC_MAX_INPUT*/
 }
 
 /**
@@ -95,7 +82,7 @@ void porcent(const char *format, int h, va_list arg)
 			print_str(s);
 			break;
 		case '%':
-			percentage(va_arg(arg, char *)); /*prints sign*/
+			_putchar('%');
 			break;
 		case 'd':
 			i = va_arg(arg, int);
