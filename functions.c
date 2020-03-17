@@ -1,14 +1,29 @@
 #include "holberton.h"
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * percentage - prints sign
+ * @c: sign to be printed
+ * Return: one in success
  */
-int _putchar(char c)
+int percentage(__attribute__((unused))char *c)
 {
-	return (write(1, &c, 1));
+	_putchar('%');
+	return (1);
+}
+
+/**
+ * print_str - print strings
+ * @s: string
+ * Return: integer
+ */
+int print_str(char *s)
+{
+	int x;
+
+	if (s == NULL)
+		s = "(null)";
+	for (x = 0; s[x] != '\0'; x++)
+		_putchar(s[x]);
+	return (x);
 }
 
 /**
@@ -33,6 +48,9 @@ void print_number(int n)
 		print_number(l / 10);
 	}
 	_putchar(l % 10 + '0');
+	/*longitud?
+	min __INTMAX_
+	_PC_MAX_INPUT*/
 }
 
 /**
@@ -64,18 +82,20 @@ int printhexa(void)
  */
 void porcent(const char *format, int h, va_list arg)
 {
-	int j, i;
-	char *t;
+	int i;
+	char *s;
 
 	switch (format[h])
 	{
-		case 'c':
+		case 'c':  /*this prints a single char*/
 			_putchar((char) va_arg(arg, int));
 			break;
-		case 's':
-			t = va_arg(arg, char *);
-			for (j = 0; t[j] != '\0'; j++)
-			_putchar(t[j]);
+		case 's': /*this prints a string*/
+			s = va_arg(arg, char *);
+			print_str(s);
+			break;
+		case '%':
+			percentage(va_arg(arg, char *)); /*prints sign*/
 			break;
 		case 'd':
 			i = va_arg(arg, int);
@@ -84,9 +104,6 @@ void porcent(const char *format, int h, va_list arg)
 		case 'i':
 			i = va_arg(arg, int);
 			print_number(i);
-			break;
-		case '%':
-			_putchar ('%')
 			break;
 	}
 }
