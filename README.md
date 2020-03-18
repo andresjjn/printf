@@ -26,4 +26,16 @@ If you would like to be a collaborator, please let us know so we can add you for
 
 Andrés Felipe Jején and David Henao. 
 
-Andrés J y David H
+## Flowchart
+
+https://drive.google.com/open?id=1SKixsb3y7iFnUKeAshW3aLvrspLhyCB-
+
+
+
+
+
+
+
+
+
+
