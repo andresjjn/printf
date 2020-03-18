@@ -17,24 +17,24 @@ int _printf(const char * const format, ...)
 	{
 		if (format)
 		{
-		if (format[h] == '%' && format[h + 1])
-		{
+			if (format[h] == '%' && format[h + 1])
+			{
+				h++;
+				i = porcent(format, h, arg);
+				v = v - i + 2;
+			}
+			else if (format[h] == '\\')
+			{
+				h++;
+				back(format, h);
+				v++;
+			}
+			else
+				_putchar(format[h]);
 			h++;
-			i = porcent(format, h, arg);
-			v = v - i + 2;
-		}
-		else if (format[h] == '\\')
-		{
-			h++;
-			back(format, h);
-			v++;
 		}
 		else
-			_putchar(format[h]);
-		h++;
-	}
-	else
-	return (-1);
+		return (-1);
 	}
 	va_end(arg);
 	return (h - v);
