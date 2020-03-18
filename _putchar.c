@@ -8,7 +8,19 @@
  */
 int _putchar(char c)
 {
-	if (c == '\0')
-        return (-1);
-    return (write(1, &c, 1));
+if (c == '\0')
+{
+return (-1);
+}
+return (write(1, &c, 1));
+}
+/**
+ * _print_putchar - print iteration of putchar
+ * @f: the char to count
+ * Return: number of iterations
+ */
+int _print_putchar(char f)
+{
+_putchar(f);
+return (1);
 }
