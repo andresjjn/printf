@@ -1,0 +1,38 @@
+.TH man 3 "17 March 2020" "0.01" "_printf man page"
+.SH NAME
+.B _printf
+- function to print strings, characters and numbers.
+.SH SYNOPSIS
+.B #include 
+"holberton.h"
+
+.B _printf
+(int printf(const char *format, ...); 
+
+int print_str(char *s); Func to print strings.
+
+int print_number(int n); Func to print numbers.
+
+int porcent(const char *format, int h, va_list arg); it interprates the format.
+
+void back(const char *format, int h); it interpretates the new line.
+
+int _putchar(char c); it prints the character.
+
+int _print_putchar(char n); it returns the number of characters.
+
+printf FORMAT [ARGUMENT]...
+printf OPTION
+.SH DESCRIPTION
+Function which converts 
+.B THE ARGUMENTS 
+into the format required by the user. It writes output to
+.RI stdout
+.I (standar output stream).
+The function prints special charactes, integers, characters, string or arrays of any data type.
+.SH SEE ALSO
+.I printf(1), _putchar(1)
+.SH BUGS
+The aritmetic operations, flags, field width and others uses are not available yet. Next update will be deploid in few weeks time.
+.SH AUTHOR
+Andrés Felipe Jejen, Oscar David Henao Hidalgo
