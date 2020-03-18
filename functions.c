@@ -23,7 +23,7 @@ int print_str(char *s)
  */
 int print_number(int n)
 {
-	unsigned int l, h = 0;
+	unsigned int l;h = 0;
 
 	if (n <= INT_MAX && n >= INT_MIN)
 	{
@@ -31,6 +31,7 @@ int print_number(int n)
 		{
 			l = -n;
 			_putchar('-');
+			h++;
 		}
 		else
 		{
