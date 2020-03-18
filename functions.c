@@ -75,7 +75,6 @@ int porcent(const char *format, int h, va_list arg)
 		case '%':
 			_putchar('%');
 			return (1);
-			break;
 		case 'd':
 			i = va_arg(arg, int);
 			j = print_number(i);
