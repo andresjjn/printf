@@ -29,7 +29,7 @@ int print_number(int n)
 	{
 		if (n < 0)
 		{
-		l = -n;
+			l = -n;
 			_putchar('-');
 		}
 		else
@@ -49,6 +49,7 @@ int print_number(int n)
 	}
 	return (h);
 }
+
 /**
  * porcent - search for case after %
  * @format: string to be evaluated
@@ -66,8 +67,6 @@ int porcent(const char *format, int h, va_list arg)
 		case 'c':  /*this prints a single char*/
 			/*_putchar((char) va_arg(arg, int));*/
 			i = _print_putchar((char) va_arg(arg, int));
-			if ((char) va_arg(arg, int) == '\0')
-			_putchar(' ');
 			return (i);
 		case 's': /*this prints a string*/
 			s = va_arg(arg, char *);
@@ -75,6 +74,7 @@ int porcent(const char *format, int h, va_list arg)
 			return (j);
 		case '%':
 			_putchar('%');
+			return (1);
 			break;
 		case 'd':
 			i = va_arg(arg, int);
