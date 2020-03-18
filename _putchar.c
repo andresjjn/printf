@@ -16,11 +16,11 @@ return (write(1, &c, 1));
 }
 /**
  * _print_putchar - print iteration of putchar
- * @f: the char to count
+ * @n: the char to count
  * Return: number of iterations
  */
-int _print_putchar(char f)
+int _print_putchar(char n)
 {
-_putchar(f);
+_putchar(n);
 return (1);
 }

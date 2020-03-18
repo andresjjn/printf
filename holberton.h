@@ -13,5 +13,4 @@ void back(const char *format, int h);
 int print_str(char *s);
 int printhexa(void);
 int _print_putchar(char n);
-
 #endif
