@@ -17,49 +17,38 @@ int print_str(char *s)
 }
 
 /**
- * print_number - write a function that integers
+ * print_number - write a function that print integers
  * @n: this is an integer
+ * Return: an iteration
  */
-void print_number(int n)
+int print_number(int n)
 {
-	unsigned int l;
+	unsigned int l, h = 0;
 
-	if (n < 0)
+	if (n <= INT_MAX && n >= INT_MIN)
 	{
+		if (n < 0)
+		{
 		l = -n;
-		_putchar('-');
+			_putchar('-');
+		}
+		else
+		{
+			l = n;
+		}
+		if (l / 10)
+		{
+			print_number(l / 10);
+		}
+		h++;
+		_putchar(l % 10 + '0');
 	}
 	else
 	{
-		l = n;
+		return (-1);
 	}
-	if (l / 10)
-	{
-		print_number(l / 10);
-	}
-	_putchar(l % 10 + '0');
+	return (h);
 }
-
-/**
- * printhexa - print hexadecimal characters
- * Return: Integer (Success)
- */
-int printhexa(void)
-{
-	char a, b;
-
-	for (a = '0'; a <= '9'; a++)
-	{
-		putchar(a);
-	}
-	for (b = 'a'; b <= 'f'; b++)
-	{
-		putchar(b);
-	}
-	putchar('\n');
-	return (0);
-}
-
 /**
  * porcent - search for case after %
  * @format: string to be evaluated
@@ -67,32 +56,36 @@ int printhexa(void)
  * @arg: argument from the list
  * Return: Always 0 (Success)
  */
-void porcent(const char *format, int h, va_list arg)
+int porcent(const char *format, int h, va_list arg)
 {
-	int i;
+	int i, j = 0;
 	char *s;
 
 	switch (format[h])
 	{
 		case 'c':  /*this prints a single char*/
-			_putchar((char) va_arg(arg, int));
-			break;
+			/*_putchar((char) va_arg(arg, int));*/
+			i = _print_putchar((char) va_arg(arg, int));
+			if ((char) va_arg(arg, int) == '\0')
+			_putchar(' ');
+			return (i);
 		case 's': /*this prints a string*/
 			s = va_arg(arg, char *);
-			print_str(s);
-			break;
+			j = print_str(s);
+			return (j);
 		case '%':
 			_putchar('%');
 			break;
 		case 'd':
 			i = va_arg(arg, int);
-			print_number(i);
-			break;
+			j = print_number(i);
+			return (j);
 		case 'i':
 			i = va_arg(arg, int);
-			print_number(i);
-			break;
+			j = print_number(i);
+			return (j);
 	}
+	return (0);
 }
 
 /**
